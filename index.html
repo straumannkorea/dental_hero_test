@@ -245,11 +245,15 @@ body::after {
   font-size:clamp(11px,2.3vw,14px);
   color:#b8e8d4; text-align:left;
   transition:all 0.15s; line-height:1.6;
+
+  -webkit-tap-highlight-color: transparent;
 }
-.option-btn:hover {
-  background:rgba(70,185,140,0.3);
-  border-color:var(--green); color:var(--white);
-  transform:translateX(4px); box-shadow:0 0 12px var(--green-glow);
+@media (hover: hover) and (pointer: fine) {
+  .option-btn:hover {
+    background:rgba(70,185,140,0.3);
+    border-color:var(--green); color:var(--white);
+    transform:translateX(4px); box-shadow:0 0 12px var(--green-glow);
+  }
 }
 .option-btn:active { background:var(--green); color:var(--black); }
 .option-btn.selected {
