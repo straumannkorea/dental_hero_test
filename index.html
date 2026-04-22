@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>나는 어떤 치과 히어로? | iEXCEL</title>
+<title>What Kind of Dental Hero Are You? | iEXCEL</title>
 <style>
-@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
 
 :root {
   --green: #46b98c;
@@ -25,7 +24,7 @@
 body {
   background: var(--black);
   color: var(--white);
-  font-family: 'Galmuri14', monospace;
+  font-family: 'Silkscreen', 'Press Start 2P', monospace;
   overflow: hidden;
   min-height: 100vh;
   min-height: 100dvh;
@@ -120,7 +119,7 @@ body::after {
 @keyframes cf1 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 
 .game-title {
-  font-family:'Galmuri11','Press Start 2P',monospace;
+  font-family:'Press Start 2P','Silkscreen',monospace;
   font-size:clamp(20px,5vw,36px);
   color:var(--green);
   text-align:center;
@@ -134,14 +133,14 @@ body::after {
 }
 
 .subtitle {
-  font-family:'Galmuri11',monospace;
-  font-size:clamp(10px,2.2vw,14px);
+  font-family:'Silkscreen','Press Start 2P',monospace;
+  font-size:clamp(10px,2vw,13px);
   color:var(--green-light);
   text-align:center; margin-bottom:32px; opacity:0.8;
 }
 
 .start-btn, .name-submit-btn {
-  font-family:'Galmuri11','Press Start 2P',monospace;
+  font-family:'Press Start 2P','Silkscreen',monospace;
   font-size:clamp(13px,2.8vw,18px);
   color:var(--black); background:var(--green);
   border:none; padding:14px 40px; cursor:pointer;
@@ -157,13 +156,13 @@ body::after {
   background: radial-gradient(ellipse at center, #1a3d2e 0%, var(--black) 70%);
 }
 .name-label {
-  font-family:'Galmuri11',monospace;
+  font-family:'Silkscreen','Press Start 2P',monospace;
   font-size:clamp(14px,3vw,20px);
   color:var(--green); margin-bottom:16px;
   text-shadow:0 0 8px var(--green-glow);
 }
 .name-input {
-  font-family:'Galmuri11',monospace;
+  font-family:'Silkscreen','Press Start 2P',monospace;
   font-size:clamp(16px,4vw,24px);
   color:var(--green);
   background:rgba(13,43,30,0.9);
@@ -175,7 +174,7 @@ body::after {
 }
 .name-input::placeholder { color:rgba(70,185,140,0.4); }
 .name-skip {
-  font-family:'Galmuri11',monospace; font-size:11px;
+  font-family:'Silkscreen','Press Start 2P',monospace; font-size:11px;
   color:var(--green-deep); background:none; border:none;
   cursor:pointer; margin-top:8px; text-decoration:underline;
 }
@@ -203,7 +202,7 @@ body::after {
 @keyframes scrollGround { 0%{background-position:0 0;} 100%{background-position:-32px 0;} }
 
 .loading-text {
-  font-family:'Galmuri11',monospace;
+  font-family:'Silkscreen','Press Start 2P',monospace;
   font-size:clamp(10px,2vw,14px);
   color:var(--green); margin-top:24px;
   animation:blink 0.8s step-end infinite;
@@ -224,10 +223,10 @@ body::after {
   margin-bottom:12px; padding:0 8px;
 }
 .hp-bar-container { display:flex; align-items:center; gap:8px; }
-.hp-label { font-family:'Galmuri11',monospace; font-size:10px; color:var(--green); }
+.hp-label { font-family:'Silkscreen','Press Start 2P',monospace; font-size:10px; color:var(--green); }
 .hp-bar { width:120px; height:14px; background:var(--dark); border:2px solid var(--green); overflow:hidden; }
 .hp-fill { height:100%; background:var(--green); transition:width 0.5s ease; box-shadow:inset 0 -4px 0 var(--green-deep); }
-.q-number { font-family:'Galmuri11',monospace; font-size:clamp(14px,3.5vw,22px); color:var(--green); text-shadow:2px 2px 0 var(--green-deep); }
+.q-number { font-family:'Silkscreen','Press Start 2P',monospace; font-size:clamp(14px,3.5vw,22px); color:var(--green); text-shadow:2px 2px 0 var(--green-deep); }
 
 .question-box {
   width:100%; max-width:600px;
@@ -237,7 +236,7 @@ body::after {
   box-shadow:inset -3px -3px 0 var(--green-deep),inset 3px 3px 0 var(--green-light),0 0 20px var(--green-glow);
 }
 .question-text {
-  font-family:'Galmuri11',monospace;
+  font-family:'Silkscreen','Press Start 2P',monospace;
   font-size:clamp(13px,3vw,17px);
   line-height:1.8; color:var(--white); text-align:center;
 }
@@ -256,10 +255,10 @@ body::after {
   width:100%; background:rgba(45,118,98,0.3);
   border:2px solid var(--green-deep);
   padding:clamp(10px,2.5vw,14px) clamp(14px,3.5vw,20px);
-  cursor:pointer; font-family:'Galmuri11',monospace;
-  font-size:clamp(11px,2.3vw,14px);
+  cursor:pointer; font-family:'Silkscreen','Press Start 2P',monospace;
+  font-size:clamp(10px,2vw,13px);
   color:#b8e8d4; text-align:left;
-  transition:all 0.15s; line-height:1.6;
+  transition:all 0.15s; line-height:1.7;
 
   -webkit-tap-highlight-color: transparent;
 }
@@ -283,7 +282,7 @@ body::after {
   transform: translateX(-50%);
   width: min(220px, calc(100vw - 32px));
   max-width: 600px;
-  font-family:'Galmuri14', monospace;
+  font-family:'Silkscreen','Press Start 2P', monospace;
   font-size: 13px;
   color: var(--green-deep);
   background: rgba(0,0,0,0.35);
@@ -309,7 +308,7 @@ body::after {
 .result-container { max-width:600px; width:100%; text-align:center; padding:8px 16px 24px; position:relative; z-index:20; }
 
 .result-badge {
-  font-family:'Galmuri11',monospace; font-size:clamp(10px,2vw,13px);
+  font-family:'Silkscreen','Press Start 2P',monospace; font-size:clamp(10px,2vw,13px);
   color:var(--green); background:rgba(70,185,140,0.15);
   border:2px solid var(--green-deep);
   padding:8px 20px; display:inline-block; margin-bottom:16px;
@@ -323,13 +322,13 @@ body::after {
 .result-character-area canvas { width:120px; height:120px; image-rendering:pixelated; }
 
 .result-type-name {
-  font-family:'Galmuri11',monospace;
+  font-family:'Silkscreen','Press Start 2P',monospace;
   font-size:clamp(16px,4vw,28px); color:var(--green);
   text-shadow:0 0 10px var(--green),3px 3px 0 var(--green-deep);
   margin-bottom:4px; line-height:1.5;
 }
 .result-type-sub {
-  font-family:'Galmuri11',monospace; font-size:clamp(12px,2.5vw,16px);
+  font-family:'Silkscreen','Press Start 2P',monospace; font-size:clamp(12px,2.5vw,16px);
   color:var(--green-light); margin-bottom:16px;
 }
 .result-desc-box {
@@ -337,32 +336,32 @@ body::after {
   padding:clamp(14px,3.5vw,22px); margin-bottom:16px; text-align:left;
 }
 .result-desc {
-  font-family:'Galmuri11',monospace;
-  font-size:clamp(11px,2.3vw,14px); color:#b8e8d4; line-height:2;
+  font-family:'Silkscreen','Press Start 2P',monospace;
+  font-size:clamp(10px,2vw,13px); color:#b8e8d4; line-height:1.9;
 }
 .stat-bars { display:flex; flex-direction:column; gap:6px; margin-top:14px; }
 .stat-row { display:flex; align-items:center; gap:8px; }
-.stat-label { font-family:'Galmuri11',monospace; font-size:9px; color:var(--green); width:40px; text-align:right; flex-shrink:0; }
+.stat-label { font-family:'Silkscreen','Press Start 2P',monospace; font-size:9px; color:var(--green); width:40px; text-align:right; flex-shrink:0; }
 .stat-bar { flex:1; height:10px; background:var(--dark); border:1px solid var(--green-deep); overflow:hidden; }
 .stat-fill { height:100%; background:var(--green); transition:width 1s ease; box-shadow:inset 0 -3px 0 var(--green-deep); }
 
 .btn-group { display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:20px; }
 .retry-btn {
-  font-family:'Galmuri11',monospace; font-size:clamp(11px,2vw,15px);
+  font-family:'Silkscreen','Press Start 2P',monospace; font-size:clamp(11px,2vw,15px);
   color:var(--black); background:var(--green);
   border:none; padding:12px 32px; cursor:pointer;
   box-shadow:4px 4px 0 var(--green-deep),inset -2px -2px 0 var(--green-deep),inset 2px 2px 0 var(--green-light);
 }
 .retry-btn:hover { transform:scale(1.05); }
 .share-btn,.link-btn {
-  font-family:'Galmuri11',monospace; font-size:clamp(9px,1.8vw,12px);
+  font-family:'Silkscreen','Press Start 2P',monospace; font-size:clamp(9px,1.8vw,12px);
   color:var(--green-light); background:var(--dark);
   border:2px solid var(--green-deep);
   padding:10px 24px; cursor:pointer; width:240px;
 }
 .share-btn:hover,.link-btn:hover { background:var(--green-deep); color:var(--white); }
 .home-btn {
-  font-family:'Galmuri11',monospace; font-size:11px; color:var(--green-deep);
+  font-family:'Silkscreen','Press Start 2P',monospace; font-size:11px; color:var(--green-deep);
   background:none; border:2px solid rgba(45,118,98,0.3);
   padding:10px 24px; cursor:pointer; width:240px;
 }
@@ -647,7 +646,7 @@ body::after {
 <!-- TITLE -->
 <div class="screen active" id="title-screen">
   <div class="title-pixel-chars" id="title-chars"></div>
-  <div class="game-title">나는 어떤<br>치과 히어로?</div>
+  <div class="game-title">What Kind of<br>Dental Hero Are You?</div>
   <div class="subtitle">&#9656; iEXCEL Hero Persona Test &#9666;</div>
   <button class="start-btn" onclick="goToName()">&#9654; START</button>
   <div class="logo-bar"><img id="logo-img" alt="Straumann"></div>
@@ -655,10 +654,10 @@ body::after {
 
 <!-- NAME -->
 <div class="screen" id="name-screen">
-  <div class="name-label">&#9733; 선생님의 성함을 입력하세요 &#9733;</div>
-  <input type="text" class="name-input" id="name-input" placeholder="예: 홍길동" maxlength="10" autocomplete="off">
+  <div class="name-label">&#9733; Enter Your Name &#9733;</div>
+  <input type="text" class="name-input" id="name-input" placeholder="e.g. Dr. Kim" maxlength="10" autocomplete="off">
   <button class="name-submit-btn" onclick="submitName()">NEXT &#9654;</button>
-  <button class="name-skip" onclick="skipName()">건너뛰기</button>
+  <button class="name-skip" onclick="skipName()">Skip</button>
   <div class="logo-bar"><img class="logo-copy" alt="Straumann"></div>
 </div>
 
@@ -680,7 +679,7 @@ body::after {
   </div>
   <div class="question-box"><div class="question-text" id="question-text"></div></div>
   <div class="options-container" id="options-container"></div>
-  <button class="q-back-btn" id="q-back-btn" onclick="goBackQuestion()">&#9664; 이전으로</button>
+  <button class="q-back-btn" id="q-back-btn" onclick="goBackQuestion()">&#9664; Back</button>
   <div class="logo-bar"><img class="logo-copy" alt="Straumann"></div>
 </div>
 
@@ -696,10 +695,10 @@ body::after {
       <div class="stat-bars" id="stat-bars"></div>
     </div>
     <div class="btn-group">
-      <button class="retry-btn" onclick="retry()">&#8635; 다시하기</button>
-      <button class="share-btn" onclick="saveResultImage()">&#128248; 결과 이미지 저장하기</button>
-      <button class="link-btn" onclick="copyLink()">&#128279; 테스트 공유하기</button>
-      <button class="home-btn" onclick="goHome()">&#9664; 처음으로</button>
+      <button class="retry-btn" onclick="retry()">&#8635; Try Again</button>
+      <button class="share-btn" onclick="saveResultImage()">&#128248; Save Result Image</button>
+      <button class="link-btn" onclick="copyLink()">&#128279; Share This Test</button>
+      <button class="home-btn" onclick="goHome()">&#9664; Home</button>
     </div>
   </div>
   <div class="logo-bar"><img class="logo-copy" alt="Straumann"></div>
@@ -916,74 +915,74 @@ function drawRunChar24(canvas, type, size, frame) {
 // ===== DATA =====
 const personas = {
   entrepreneur: {
-    name: "The Entrepreneur", sub: "기업가형 치과 히어로",
-    desc: (n) => `더 많은 환자를 진료하고, 더 큰 팀을 운영하며, 더 성장하는 치과를 원하는 ${n}선생님! 병원을 하나의 유기적인 시스템으로 운영하는 당신은, 진료의 흐름부터 예약, 스탭 운영까지 효율적으로 관리하는 진정한 경영 리더입니다. 목표는 하나, 환자 만족과 병원 성장이 함께 이루어지는 지속 가능한 시스템을 만드는 것!`,
+    name: "The Entrepreneur", sub: "Business Builder Dental Hero",
+    desc: (n) => `${n}You want to care for more patients, lead a stronger team, and build a practice that keeps growing. You see your clinic as one connected system, managing everything from treatment flow to scheduling and staff operations with confidence. Your superpower is building a practice where patient satisfaction and long-term growth go hand in hand!`,
     stats: { SYS:95, TECH:60, ART:40, SCI:50, EDU:65 }
   },
   technologist: {
-    name: "The Technologist", sub: "혁신가형 치과 히어로",
-    desc: (n) => `더 빠르게 진단하고, 더 정확하게 치료하며, 더 앞선 기술로 임상을 이끄는 ${n}선생님! 새로운 장비가 나오면 가장 먼저 도입하고, 디지털 워크플로우를 완벽하게 구축하는 당신은 치과계의 얼리어답터. 미래의 진료를 오늘 실현합니다!`,
+    name: "The Technologist", sub: "Innovation-Driven Dental Hero",
+    desc: (n) => `${n}You want faster diagnosis, more precise treatment, and smarter clinical workflows. When new equipment launches, you are ready to test it first, and you love building a seamless digital workflow from start to finish. Your superpower is bringing the future of dentistry into the operatory today!`,
     stats: { SYS:55, TECH:95, ART:50, SCI:70, EDU:45 }
   },
   craftperson: {
-    name: "The Craft Person", sub: "심미 임상가형 치과 히어로",
-    desc: (n) => `더 섬세한 디테일을 완성하고, 더 자연스러운 결과를 추구하며, 더 아름다운 미소를 디자인하는 ${n}선생님! 0.1mm의 차이에도 타협하지 않는 당신의 손끝에서 환자의 미소가 완성됩니다. 임상의 예술가, 그것이 당신의 슈퍼파워!`,
+    name: "The Craft Person", sub: "Aesthetic Master Dental Hero",
+    desc: (n) => `${n}You live for finer details, more natural results, and beautifully designed smiles. Even a 0.1 mm difference matters to you, and that precision shows in every case you finish. Your superpower is turning clinical skill into aesthetic artistry!`,
     stats: { SYS:40, TECH:60, ART:95, SCI:55, EDU:50 }
   },
   scientist: {
-    name: "The Scientist", sub: "학술가형 치과 히어로",
-    desc: (n) => `더 탄탄한 데이터를 신뢰하고, 더 어려운 케이스를 치료하며, 더 높은 수준의 임상을 추구하는 ${n}선생님! 매 케이스마다 논문과 데이터로 무장한 당신은, 근거 기반 치료의 살아있는 증거. 과학이 말하는 최선의 치료를 실현합니다!`,
+    name: "The Scientist", sub: "Evidence-Driven Dental Hero",
+    desc: (n) => `${n}You trust strong data, take on complex cases, and keep pushing for a higher clinical standard. Every treatment decision is backed by papers, evidence, and careful analysis. Your superpower is turning science into confident, evidence-based care!`,
     stats: { SYS:45, TECH:65, ART:45, SCI:95, EDU:70 }
   },
   educator: {
-    name: "The Educator", sub: "교육자형 치과 히어로",
-    desc: (n) => `더 많은 지식을 나누고, 더 많은 임상 경험을 공유하며, 더 많은 치과의사의 성장을 이끄는 ${n}선생님! 자신의 케이스를 교육 콘텐츠로 바꾸고, 후배들의 성장을 진심으로 응원하는 당신은 치과계의 멘토. 다음 세대를 이끌 잠재력을 깨우세요!`,
+    name: "The Educator", sub: "Mentor-Style Dental Hero",
+    desc: (n) => `${n}You love sharing knowledge, passing on clinical experience, and helping other dentists grow. You naturally turn your own cases into teachable moments and take real pride in guiding the next generation. Your superpower is helping others level up!`,
     stats: { SYS:60, TECH:50, ART:45, SCI:70, EDU:95 }
   }
 };
 
 const questions = [
-  { q:"월요일 아침, 병원 문을 열며 가장 먼저 하는 생각은?", options:[
-    {text:'"오늘 예약 얼마나 찼지? 환자들을 위해 효율적인 진료 흐름을 체크해보자."',type:"entrepreneur"},
-    {text:'"새로 업데이트 된 스캐너 데이터 확인해봐야지."',type:"technologist"},
-    {text:'"오늘 풀아치 케이스, 쉐이드 셀렉션부터 다시 점검하자."',type:"craftperson"},
-    {text:'"주말에 읽은 논문 내용을 오늘 케이스에 적용해볼까?"',type:"scientist"},
-    {text:'"오늘 케이스 토대로 강의하면 아주 좋겠군."',type:"educator"}
+  { q:"It's Monday morning. When you open the clinic, what's your first thought?", options:[
+    {text:"\"How full is today's schedule? Let's make sure the flow stays efficient for our patients.\"",type:"entrepreneur"},
+    {text:'"I should check the newly updated scanner data first."',type:"technologist"},
+    {text:"\"For today's full-arch case, I want to review the shade selection again first.\"",type:"craftperson"},
+    {text:"\"Can I apply what I read in that paper over the weekend to today's case?\"",type:"scientist"},
+    {text:"\"Today's cases would make great teaching material.\"",type:"educator"}
   ]},
-  { q:"까다로운 '난케이스' 환자가 왔을 때, 가장 먼저 드는 생각은?", options:[
-    {text:'"이 케이스를 성공시키면 병원의 위상이 한 단계 올라가겠군."',type:"entrepreneur"},
-    {text:'"최근 도입한 디지털 장비를 활용하면 훨씬 효율적으로 해결되겠어."',type:"technologist"},
-    {text:'"어떻게 해야 가장 완벽한 핏(Fit)과 심미성을 구현할 수 있을까?"',type:"craftperson"},
-    {text:'"유사 케이스의 논문과 임상 데이터를 찾아 확실한 근거부터 확보해야지."',type:"scientist"},
-    {text:'"이 과정을 잘 기록해두면 스탭과 후배들에게 훌륭한 교육 자료가 되겠어."',type:"educator"}
+  { q:"When a particularly challenging case walks in, what's your first thought?", options:[
+    {text:'"If we handle this case well, it could elevate the reputation of the practice."',type:"entrepreneur"},
+    {text:'"We can solve this much more efficiently with the new digital equipment we just brought in."',type:"technologist"},
+    {text:'"What would create the most ideal fit and the most natural esthetic outcome here?"',type:"craftperson"},
+    {text:'"I need to review the literature and clinical data on similar cases before anything else."',type:"scientist"},
+    {text:'"If I document this well, it could become a great learning case for staff and junior dentists."',type:"educator"}
   ]},
-  { q:"'마법의 지팡이'로 병원의 한 가지를 즉시 바꿀 수 있다면?", options:[
-    {text:"예약이 끊이지 않고 대기실이 꽉 차는 효율적인 병원 시스템",type:"entrepreneur"},
-    {text:"스캔부터 보철까지 버튼 하나로 끝나는 최첨단 워크플로우",type:"technologist"},
-    {text:"내가 생각하는 대로 0.1mm 오차 없이 구현되는 완벽한 손",type:"craftperson"},
-    {text:"논문 100편을 순식간에 스캐닝해 최적의 임상 적용법을 파악하는 능력",type:"scientist"},
-    {text:"내 경험과 노하우가 자동으로 정리되어 후배들에게 전달되는 시스템",type:"educator"}
+  { q:"If you had a magic wand and could instantly upgrade one thing in your clinic, what would it be?", options:[
+    {text:"A highly efficient practice system with a full schedule and a waiting room that never slows down",type:"entrepreneur"},
+    {text:"A cutting-edge workflow that moves from scan to restoration almost at the push of a button",type:"technologist"},
+    {text:"Perfect hands that can deliver exactly what I envision with virtually zero deviation",type:"craftperson"},
+    {text:"The ability to scan 100 papers instantly and identify the strongest clinical application",type:"scientist"},
+    {text:"A system that automatically organizes my experience and passes it on to the next generation",type:"educator"}
   ]},
-  { q:"동료에게 임플란트를 추천할 때, 내가 꽂히는 포인트는?", options:[
-    {text:'"체어 타임이 확실히 줄어들어. 병원 회전율에 정말 좋아."',type:"entrepreneur"},
-    {text:'"워크플로우가 진짜 스마트해. 디지털 장비랑 호환성이 최고야."',type:"technologist"},
-    {text:'"마진 핏이랑 잇몸 라인이 예술이야. 결과물의 디테일이 달라."',type:"craftperson"},
-    {text:'"데이터 봤어? 10년 생존율이랑 표면 처리 근거가 제일 확실해."',type:"scientist"},
-    {text:'"ITI 같은 글로벌 학회와 연계돼서 정보 얻고 배우기가 편해."',type:"educator"}
+  { q:"When recommending an implant system to a colleague, what feature grabs you most?", options:[
+    {text:'"It clearly cuts chair time. That makes a real difference in practice efficiency."',type:"entrepreneur"},
+    {text:'"The workflow is genuinely smart, and the compatibility with digital equipment is excellent."',type:"technologist"},
+    {text:'"The margin fit and gingival line are beautiful. The level of detail in the final result is different."',type:"craftperson"},
+    {text:'"Have you looked at the data? The 10-year survival evidence and surface science are what stand out most."',type:"scientist"},
+    {text:'"Its connection to global organizations like ITI makes it easier to learn, teach, and stay informed."',type:"educator"}
   ]},
-  { q:"훗날 은퇴식에서, 어떤 의사로 기억되고 싶나요?", options:[
-    {text:"성공적인 병원 경영 모델을 정립한 입지전적인 리더.",type:"entrepreneur"},
-    {text:"치과 진료의 패러다임을 바꾼 혁신적인 선구자.",type:"technologist"},
-    {text:"환자에게 최고의 미소를 선물했던 타협 없는 명의.",type:"craftperson"},
-    {text:"치의학 발전에 기여하고 데이터를 남긴 존경받는 연구자.",type:"scientist"},
-    {text:"수많은 후배들을 올바른 길로 이끌어준 참된 스승.",type:"educator"}
+  { q:"At your retirement ceremony one day, how would you want people to remember you?", options:[
+    {text:"A visionary leader who built a successful model for running a dental practice.",type:"entrepreneur"},
+    {text:"An innovative pioneer who helped change the way dentistry is practiced.",type:"technologist"},
+    {text:"A no-compromise clinician who gave patients their best smiles.",type:"craftperson"},
+    {text:"A respected researcher who advanced dentistry and left meaningful clinical data behind.",type:"scientist"},
+    {text:"A true mentor who guided countless younger dentists in the right direction.",type:"educator"}
   ]},
-  { q:"학회 참석 후 가장 기억에 남는 순간은?", options:[
-    {text:'"병원 매출 200% 성장시킨 선생님의 경영 노하우 세션이 최고였어."',type:"entrepreneur"},
-    {text:'"AI 스캐닝 시스템 라이브 데모 보고 소름 돋았어. 바로 도입해야지."',type:"technologist"},
-    {text:'"전치부 심미 증례 발표에서 Before/After 보고 감탄이 절로 나왔어."',type:"craftperson"},
-    {text:'"RCT 메타분석 발표가 압권이었어. 데이터가 말해주는 거지."',type:"scientist"},
-    {text:'"핸즈온 세션에서 후배들이 눈 빛나며 배우는 모습이 뿌듯했어."',type:"educator"}
+  { q:"After attending a conference, which moment stays with you the most?", options:[
+    {text:'"The session on how a doctor grew practice revenue by 200% was unforgettable."',type:"entrepreneur"},
+    {text:'"The live demo of the AI scanning system was incredible. I wanted to bring it in immediately."',type:"technologist"},
+    {text:'"The before-and-after slides from the anterior esthetic case presentation were stunning."',type:"craftperson"},
+    {text:'"The RCT meta-analysis presentation was the highlight. The data really spoke for itself."',type:"scientist"},
+    {text:'"Watching younger dentists light up during the hands-on session was the most rewarding part."',type:"educator"}
   ]}
 ];
 
@@ -1053,7 +1052,7 @@ function showQuestion() {
     const b=document.createElement('button'); b.className='option-btn';
     b.textContent=o.text; b.onclick=()=>selectOption(o.type,b); c.appendChild(b);
   });
-  document.getElementById('q-back-btn').textContent=currentQ===0?'\u25C0 처음으로':'\u25C0 이전으로';
+  document.getElementById('q-back-btn').textContent=currentQ===0?'\u25C0 Home':'\u25C0 Back';
 }
 
 function selectOption(t,b) {
@@ -1099,7 +1098,7 @@ async function saveResultImage() {
 function copyLink() {
   const url=window.location.href;
   if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>{
-    const b=document.querySelector('.link-btn');const o=b.textContent;b.textContent='✓ 링크 복사 완료!';setTimeout(()=>b.textContent=o,2000);
+    const b=document.querySelector('.link-btn');const o=b.textContent;b.textContent='✓ Link copied!';setTimeout(()=>b.textContent=o,2000);
   });}
 }
 </script>
