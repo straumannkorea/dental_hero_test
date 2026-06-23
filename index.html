@@ -779,6 +779,75 @@ body::after {
   }
 }
 
+
+/* ===== MOBILE RESULT LOGO OVERLAP FIX ===== */
+/* 결과 화면에서는 로고를 화면 하단에 띄워두지 않고 콘텐츠 흐름 안으로 넣어
+   '처음으로' 버튼 또는 문의 폼과 겹치지 않게 처리합니다. */
+#result-screen .logo-bar {
+  position: static;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  margin: 18px auto calc(env(safe-area-inset-bottom, 0px) + 24px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+#result-screen .logo-bar img {
+  height: 16px;
+}
+
+#result-screen .btn-group {
+  margin-bottom: 22px;
+}
+
+#result-screen .lead-container {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  #result-screen {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 32px);
+  }
+
+  #result-screen .result-container {
+    padding-bottom: 10px;
+  }
+
+  #result-screen .btn-group {
+    margin-bottom: 28px;
+  }
+
+  #result-screen .lead-container {
+    padding-bottom: 20px;
+  }
+
+  #result-screen .logo-bar {
+    margin-top: 10px;
+    margin-bottom: calc(env(safe-area-inset-bottom, 0px) + 28px);
+    opacity: 0.38;
+  }
+}
+
+@media (max-width: 480px) {
+  #result-screen {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 28px);
+  }
+
+  #result-screen .btn-group {
+    margin-bottom: 30px;
+  }
+
+  #result-screen .logo-bar img {
+    height: 15px;
+  }
+}
+
 </style>
 </head>
 <body>
