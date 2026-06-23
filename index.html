@@ -493,6 +493,19 @@ body::after {
   box-shadow:4px 4px 0 var(--green-deep),inset -2px -2px 0 var(--green-deep),inset 2px 2px 0 var(--green-light);
 }
 .lead-submit-btn:hover { transform:scale(1.03); }
+.lead-submit-btn:disabled { opacity:0.65; cursor:not-allowed; transform:none; }
+.lead-form-status {
+  display:none;
+  font-family:'Galmuri11',monospace;
+  font-size:12px;
+  line-height:1.7;
+  padding:12px;
+  border:1px solid rgba(70,185,140,0.38);
+  background:rgba(0,0,0,0.24);
+  color:#d8fff0;
+}
+.lead-form-status.success { display:block; border-color:var(--green); box-shadow:0 0 10px rgba(70,185,140,0.16); }
+.lead-form-status.error { display:block; border-color:#ff7d7d; color:#ffd5d5; }
 .hidden-field { display:none; }
 
 @media (max-width: 480px) {
@@ -833,12 +846,12 @@ body::after {
 
   <div class="lead-container" id="lead-container">
     <div class="lead-card">
-      <div class="lead-eyebrow">&#9656; iEXCEL SOLUTION CONTACT</div>
-      <div class="lead-title">원장님의 Hero Type에 맞는<br>iEXCEL™ 솔루션이 궁금하신가요?</div>
-      <div class="lead-desc">제품 추천 및 상담을 원하시면 아래 정보를 남겨주세요. 담당자가 확인 후 연락드리겠습니다.</div>
+      <div class="lead-eyebrow">&#9656; STRAUMANN SOLUTION CONTACT</div>
+      <div class="lead-title">원장님의 Hero Type에 맞는<br>스트라우만 솔루션이 궁금하신가요?</div>
+      <div class="lead-desc">스트라우만 제품 추천 및 상담을 원하시면 아래 정보를 남겨주세요. 담당자가 확인 후 연락드리겠습니다.</div>
       <div class="lead-result-copy" id="lead-result-copy">현재 결과: -</div>
 
-      <form name="chbti-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" class="lead-form">
+      <form name="chbti-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="lead-form" id="lead-form" onsubmit="handleLeadSubmit(event)">
         <input type="hidden" name="form-name" value="chbti-contact">
         <input type="hidden" name="hero_type" id="lead-hero-type" value="">
         <input type="hidden" name="hero_type_label" id="lead-hero-type-label" value="">
@@ -859,23 +872,22 @@ body::after {
           <label class="field-label">연락처 *
             <input type="tel" name="phone" required autocomplete="tel" placeholder="예: 010-0000-0000">
           </label>
-          <label class="field-label">이메일
-            <input type="email" name="email" autocomplete="email" placeholder="예: name@email.com">
+          <label class="field-label">지역 *
+            <input type="text" name="region" required placeholder="예: 서울 강남구 / 부산 해운대구">
           </label>
         </div>
 
-        <label class="field-label">관심 제품/솔루션
-          <select name="interest">
-            <option value="iEXCEL">iEXCEL™</option>
-            <option value="BLX">BLX</option>
-            <option value="TLX">TLX</option>
-            <option value="Digital workflow">디지털 워크플로우</option>
-            <option value="Other">기타 / 상담 후 결정</option>
+        <label class="field-label">관심 제품/솔루션 *
+          <select name="interest" required>
+            <option value="" disabled selected>선택해주세요</option>
+            <option value="implant">임플란트</option>
+            <option value="bio">바이오(골이식재, 엠도게인 등)</option>
+            <option value="digital_workflow">디지털 워크플로우</option>
           </select>
         </label>
 
         <label class="field-label">문의 내용
-          <textarea name="message" placeholder="궁금하신 제품, 상담 희망 내용, 연락 가능 시간 등을 남겨주세요."></textarea>
+          <textarea name="message" placeholder="궁금하신 스트라우만 제품, 상담 희망 내용, 연락 가능 시간 등을 남겨주세요."></textarea>
         </label>
 
         <label class="privacy-check">
@@ -883,13 +895,14 @@ body::after {
           <span>개인정보 수집 및 이용에 동의합니다. *</span>
         </label>
         <div class="privacy-note">
-          수집 항목: 성함, 병원명, 연락처, 이메일, 문의 내용, 테스트 결과 유형<br>
-          수집 목적: 제품/솔루션 상담 및 문의 응대<br>
+          수집 항목: 성함, 병원명, 연락처, 지역, 관심 제품/솔루션, 문의 내용, 테스트 결과 유형<br>
+          수집 목적: 스트라우만 제품/솔루션 상담 및 문의 응대<br>
           보유 기간: 문의 처리 및 내부 개인정보 처리 기준에 따름<br>
           ※ 실제 공개 전, 회사 개인정보 처리 기준에 맞게 문구를 반드시 검토해 주세요.
         </div>
 
-        <button type="submit" class="lead-submit-btn">&#9654; 제품 추천 문의하기</button>
+        <div class="lead-form-status" id="lead-form-status" aria-live="polite"></div>
+        <button type="submit" class="lead-submit-btn" id="lead-submit-btn">&#9654; 스트라우만 제품 추천 문의하기</button>
       </form>
     </div>
   </div>
@@ -1300,6 +1313,65 @@ function copyLink() {
     const b=document.querySelector('.link-btn');const o=b.textContent;b.textContent='✓ 링크 복사 완료!';setTimeout(()=>b.textContent=o,2000);
   });}
 }
+
+function encodeNetlifyForm(data) {
+  return new URLSearchParams(data).toString();
+}
+
+async function handleLeadSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const status = document.getElementById('lead-form-status');
+  const submitBtn = document.getElementById('lead-submit-btn');
+
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  if (status) {
+    status.className = 'lead-form-status';
+    status.textContent = '';
+  }
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+  }
+
+  try {
+    const formData = new FormData(form);
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encodeNetlifyForm(formData)
+    });
+
+    if (status) {
+      status.className = 'lead-form-status success';
+      status.innerHTML = '문의가 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.';
+    }
+    form.reset();
+
+    const leadHeroType = document.getElementById('lead-hero-type');
+    const leadHeroTypeLabel = document.getElementById('lead-hero-type-label');
+    if (currentResult && personas[currentResult]) {
+      leadHeroType.value = currentResult;
+      leadHeroTypeLabel.value = personas[currentResult].sub + ' / ' + personas[currentResult].name;
+    }
+  } catch (error) {
+    console.error(error);
+    if (status) {
+      status.className = 'lead-form-status error';
+      status.textContent = '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+    }
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '▶ 스트라우만 제품 추천 문의하기';
+    }
+  }
+}
+
 </script>
 </body>
 </html>

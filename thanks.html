@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문의가 접수되었습니다 | iEXCEL</title>
+<style>
+@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+:root { --green:#46b98c; --green-deep:#2d7662; --black:#000; --white:#fff; --green-light:#6edbb3; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body {
+  min-height:100vh;
+  min-height:100dvh;
+  background:radial-gradient(ellipse at center,#1a3d2e 0%,#000 70%);
+  color:var(--white);
+  font-family:'Galmuri14',monospace;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  text-align:center;
+}
+.card {
+  width:min(520px,100%);
+  background:rgba(13,43,30,0.92);
+  border:3px solid var(--green);
+  box-shadow:0 0 24px rgba(70,185,140,0.25);
+  padding:28px 22px;
+}
+h1 {
+  font-family:'Galmuri11',monospace;
+  color:var(--green);
+  font-size:24px;
+  line-height:1.5;
+  margin-bottom:14px;
+  text-shadow:0 0 10px rgba(70,185,140,0.4);
+}
+p { color:#b8e8d4; line-height:1.8; font-size:14px; margin-bottom:22px; }
+a {
+  display:inline-block;
+  font-family:'Galmuri11',monospace;
+  color:#000;
+  background:var(--green);
+  text-decoration:none;
+  padding:12px 24px;
+  box-shadow:4px 4px 0 var(--green-deep),inset -2px -2px 0 var(--green-deep),inset 2px 2px 0 var(--green-light);
+}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>&#9733; 문의가 접수되었습니다 &#9733;</h1>
+    <p>남겨주신 내용을 확인한 뒤<br>담당자가 연락드리겠습니다.</p>
+    <a href="/">테스트로 돌아가기</a>
+  </div>
+</body>
+</html>
