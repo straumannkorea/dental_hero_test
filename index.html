@@ -377,6 +377,134 @@ body::after {
 
 
 
+
+/* ===== LEAD FORM / CONTACT ===== */
+.lead-container {
+  max-width:600px;
+  width:100%;
+  padding:0 16px 40px;
+  position:relative;
+  z-index:20;
+}
+.lead-card {
+  background:rgba(13,43,30,0.92);
+  border:3px solid var(--green-deep);
+  box-shadow:0 0 18px rgba(70,185,140,0.18), inset 0 0 0 2px rgba(255,255,255,0.03);
+  padding:18px;
+  text-align:left;
+}
+.lead-eyebrow {
+  font-family:'Galmuri11',monospace;
+  font-size:10px;
+  color:var(--green-light);
+  margin-bottom:8px;
+  letter-spacing:0.04em;
+}
+.lead-title {
+  font-family:'Galmuri11',monospace;
+  font-size:clamp(14px,3vw,20px);
+  line-height:1.55;
+  color:var(--green);
+  text-shadow:0 0 8px var(--green-glow);
+  margin-bottom:10px;
+}
+.lead-desc,
+.lead-result-copy {
+  font-family:'Galmuri11',monospace;
+  font-size:clamp(11px,2.2vw,13px);
+  color:#b8e8d4;
+  line-height:1.8;
+}
+.lead-result-copy {
+  margin:10px 0 16px;
+  color:var(--green-light);
+}
+.lead-form {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.lead-row {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.field-label {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-family:'Galmuri11',monospace;
+  font-size:11px;
+  color:var(--green-light);
+}
+.field-label input,
+.field-label select,
+.field-label textarea {
+  width:100%;
+  font-family:'Galmuri14',monospace;
+  font-size:13px;
+  color:var(--white);
+  background:rgba(0,0,0,0.45);
+  border:2px solid var(--green-deep);
+  padding:11px 12px;
+  outline:none;
+  border-radius:0;
+}
+.field-label input:focus,
+.field-label select:focus,
+.field-label textarea:focus {
+  border-color:var(--green);
+  box-shadow:0 0 10px var(--green-glow);
+}
+.field-label textarea {
+  min-height:88px;
+  resize:vertical;
+}
+.privacy-check {
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  font-family:'Galmuri11',monospace;
+  font-size:11px;
+  color:#d8fff0;
+  line-height:1.6;
+}
+.privacy-check input {
+  margin-top:4px;
+  accent-color:var(--green);
+}
+.privacy-note {
+  font-family:'Galmuri14',monospace;
+  font-size:10px;
+  color:rgba(184,232,212,0.72);
+  line-height:1.7;
+  border:1px solid rgba(70,185,140,0.22);
+  padding:10px;
+  background:rgba(0,0,0,0.18);
+}
+.lead-submit-btn {
+  font-family:'Galmuri11',monospace;
+  font-size:clamp(12px,2.4vw,15px);
+  color:var(--black);
+  background:var(--green);
+  border:none;
+  padding:13px 24px;
+  cursor:pointer;
+  box-shadow:4px 4px 0 var(--green-deep),inset -2px -2px 0 var(--green-deep),inset 2px 2px 0 var(--green-light);
+}
+.lead-submit-btn:hover { transform:scale(1.03); }
+.hidden-field { display:none; }
+
+@media (max-width: 480px) {
+  .lead-container { padding:0 12px 34px; }
+  .lead-card { padding:14px; }
+  .lead-row { grid-template-columns:1fr; gap:12px; }
+  .field-label input,
+  .field-label select,
+  .field-label textarea { font-size:12px; padding:10px; }
+  .privacy-note { font-size:9px; }
+}
+
 /* ===== Responsive layout tuning ===== */
 @media (min-width: 769px) {
   #question-screen,
@@ -702,6 +830,70 @@ body::after {
       <button class="home-btn" onclick="goHome()">&#9664; 처음으로</button>
     </div>
   </div>
+
+  <div class="lead-container" id="lead-container">
+    <div class="lead-card">
+      <div class="lead-eyebrow">&#9656; iEXCEL SOLUTION CONTACT</div>
+      <div class="lead-title">원장님의 Hero Type에 맞는<br>iEXCEL™ 솔루션이 궁금하신가요?</div>
+      <div class="lead-desc">제품 추천 및 상담을 원하시면 아래 정보를 남겨주세요. 담당자가 확인 후 연락드리겠습니다.</div>
+      <div class="lead-result-copy" id="lead-result-copy">현재 결과: -</div>
+
+      <form name="chbti-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" class="lead-form">
+        <input type="hidden" name="form-name" value="chbti-contact">
+        <input type="hidden" name="hero_type" id="lead-hero-type" value="">
+        <input type="hidden" name="hero_type_label" id="lead-hero-type-label" value="">
+        <p class="hidden-field">
+          <label>Don’t fill this out: <input name="bot-field"></label>
+        </p>
+
+        <div class="lead-row">
+          <label class="field-label">성함 *
+            <input type="text" name="name" required autocomplete="name" placeholder="예: 홍길동">
+          </label>
+          <label class="field-label">병원명 *
+            <input type="text" name="clinic" required placeholder="예: 스트라우만치과">
+          </label>
+        </div>
+
+        <div class="lead-row">
+          <label class="field-label">연락처 *
+            <input type="tel" name="phone" required autocomplete="tel" placeholder="예: 010-0000-0000">
+          </label>
+          <label class="field-label">이메일
+            <input type="email" name="email" autocomplete="email" placeholder="예: name@email.com">
+          </label>
+        </div>
+
+        <label class="field-label">관심 제품/솔루션
+          <select name="interest">
+            <option value="iEXCEL">iEXCEL™</option>
+            <option value="BLX">BLX</option>
+            <option value="TLX">TLX</option>
+            <option value="Digital workflow">디지털 워크플로우</option>
+            <option value="Other">기타 / 상담 후 결정</option>
+          </select>
+        </label>
+
+        <label class="field-label">문의 내용
+          <textarea name="message" placeholder="궁금하신 제품, 상담 희망 내용, 연락 가능 시간 등을 남겨주세요."></textarea>
+        </label>
+
+        <label class="privacy-check">
+          <input type="checkbox" name="privacy_agree" value="agree" required>
+          <span>개인정보 수집 및 이용에 동의합니다. *</span>
+        </label>
+        <div class="privacy-note">
+          수집 항목: 성함, 병원명, 연락처, 이메일, 문의 내용, 테스트 결과 유형<br>
+          수집 목적: 제품/솔루션 상담 및 문의 응대<br>
+          보유 기간: 문의 처리 및 내부 개인정보 처리 기준에 따름<br>
+          ※ 실제 공개 전, 회사 개인정보 처리 기준에 맞게 문구를 반드시 검토해 주세요.
+        </div>
+
+        <button type="submit" class="lead-submit-btn">&#9654; 제품 추천 문의하기</button>
+      </form>
+    </div>
+  </div>
+
   <div class="logo-bar"><img class="logo-copy" alt="Straumann"></div>
 </div>
 
@@ -1069,6 +1261,12 @@ function showResult() {
   const scores=getScores(); let mx=0,w='entrepreneur';
   for(const[k,v]of Object.entries(scores)){if(v>mx){mx=v;w=k;}}
   currentResult=w; const p=personas[w]; const n=playerName?(playerName+' '):'';
+  const leadHeroType = document.getElementById('lead-hero-type');
+  const leadHeroTypeLabel = document.getElementById('lead-hero-type-label');
+  const leadResultCopy = document.getElementById('lead-result-copy');
+  if (leadHeroType) leadHeroType.value = w;
+  if (leadHeroTypeLabel) leadHeroTypeLabel.value = p.sub + ' / ' + p.name;
+  if (leadResultCopy) leadResultCopy.textContent = '현재 결과: ' + p.sub + ' / ' + p.name;
   document.getElementById('result-name').textContent=p.name;
   document.getElementById('result-sub').textContent=p.sub;
   document.getElementById('result-desc').textContent=p.desc(n);
