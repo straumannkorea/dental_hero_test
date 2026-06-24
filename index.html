@@ -1388,6 +1388,11 @@ function showResult() {
   score_scientist: scores.scientist,
   score_educator: scores.educator
 });
+  trackEvent('chbti_result_' + w, {
+  event_category: 'chbti_result_type',
+  hero_type: w,
+  hero_type_label: p.sub + ' / ' + p.name
+});
   const leadHeroType = document.getElementById('lead-hero-type');
   const leadHeroTypeLabel = document.getElementById('lead-hero-type-label');
   const leadResultCopy = document.getElementById('lead-result-copy');
