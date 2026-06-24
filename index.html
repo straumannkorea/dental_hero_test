@@ -1323,7 +1323,19 @@ function submitName() { playerName=document.getElementById('name-input').value.t
 function skipName() { playerName=''; startQuiz(); }
 document.getElementById('name-input').addEventListener('keydown',e=>{if(e.key==='Enter')submitName();});
 
-function startQuiz() { flash(); currentQ=0; answers=[]; showTransition(()=>{showQuestion();showScreen('question-screen');}); }
+function startQuiz() {
+  trackEvent('chbti_quiz_start', {
+    event_category: 'chbti'
+  });
+
+  flash();
+  currentQ = 0;
+  answers = [];
+  showTransition(() => {
+    showQuestion();
+    showScreen('question-screen');
+  });
+}
 
 function showTransition(cb) {
   showScreen('transition-screen');
@@ -1366,6 +1378,16 @@ function showResult() {
   const scores=getScores(); let mx=0,w='entrepreneur';
   for(const[k,v]of Object.entries(scores)){if(v>mx){mx=v;w=k;}}
   currentResult=w; const p=personas[w]; const n=playerName?(playerName+' '):'';
+  trackEvent('chbti_result_view', {
+  event_category: 'chbti',
+  hero_type: w,
+  hero_type_label: p.sub + ' / ' + p.name,
+  score_entrepreneur: scores.entrepreneur,
+  score_technologist: scores.technologist,
+  score_craftperson: scores.craftperson,
+  score_scientist: scores.scientist,
+  score_educator: scores.educator
+});
   const leadHeroType = document.getElementById('lead-hero-type');
   const leadHeroTypeLabel = document.getElementById('lead-hero-type-label');
   const leadResultCopy = document.getElementById('lead-result-copy');
@@ -1392,6 +1414,11 @@ function showResult() {
 function retry() { flash();currentQ=0;answers=[];showTransition(()=>{showQuestion();showScreen('question-screen');}); }
 
 async function saveResultImage() {
+  trackEvent('chbti_save_image', {
+    event_category: 'chbti',
+    hero_type: currentResult || ''
+  });
+
   const el=document.getElementById('result-capture');
   try {
     const cv=await html2canvas(el,{backgroundColor:'#000',scale:2,useCORS:true,logging:false});
@@ -1400,6 +1427,11 @@ async function saveResultImage() {
 }
 
 function copyLink() {
+  trackEvent('chbti_share_link', {
+    event_category: 'chbti',
+    hero_type: currentResult || ''
+  });
+
   const url=window.location.href;
   if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>{
     const b=document.querySelector('.link-btn');const o=b.textContent;b.textContent='✓ 링크 복사 완료!';setTimeout(()=>b.textContent=o,2000);
@@ -1437,7 +1469,15 @@ async function handleLeadSubmit(event) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encodeNetlifyForm(formData)
     });
-
+    
+trackEvent('chbti_lead_submit', {
+  event_category: 'chbti',
+  hero_type: formData.get('hero_type') || currentResult || '',
+  hero_type_label: formData.get('hero_type_label') || '',
+  interest: formData.get('interest') || '',
+  region: formData.get('region') || ''
+});
+    
     if (status) {
       status.className = 'lead-form-status success';
       status.innerHTML = '문의가 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.';
